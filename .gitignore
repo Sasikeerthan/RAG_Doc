@@ -3,3 +3,4 @@ node_modules/
 *.pdf
 __pycache__/
 .claude/
+backend/.env

@@ -16,10 +16,15 @@ from langchain_openai import ChatOpenAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sse_starlette.sse import EventSourceResponse
 
+import dotenv
+
+dotenv.load_dotenv('.env')
+
 # -------------------------------------------------------------------
 # CONFIG
 # -------------------------------------------------------------------
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 LLM_MODEL = "google/gemini-2.5-flash"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
