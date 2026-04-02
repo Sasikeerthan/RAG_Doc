@@ -3,9 +3,6 @@ import os
 import re
 import tempfile
 
-from dotenv import load_dotenv
-
-load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 import uvicorn
 from fastapi import FastAPI, File, UploadFile
@@ -22,7 +19,7 @@ from sse_starlette.sse import EventSourceResponse
 # -------------------------------------------------------------------
 # CONFIG
 # -------------------------------------------------------------------
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 LLM_MODEL = "google/gemini-2.5-flash"
 EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"

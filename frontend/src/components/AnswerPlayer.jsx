@@ -217,7 +217,12 @@ export default function AnswerPlayer({
       for (let i = startSentence; i < sentences.length; i++) {
         const range = ranges[i]
         if (!range) continue
-        tts.enqueue(sentences[i], i, range.start, range.end)
+        if (i === startSentence && startWord > range.start) {
+                const partialText = words.slice(startWord, range.end + 1).join(' ')
+                tts.enqueue(partialText, i, startWord, range.end)
+              } else {
+                tts.enqueue(sentences[i], i, range.start, range.end)
+              }
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
